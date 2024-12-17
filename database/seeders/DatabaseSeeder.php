@@ -16,10 +16,9 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create(); ---this will create 10 random users in our database
 
         User::factory()->create([
-            'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => bcrypt('this is just a test.'),
-            'id' => 1
+            'id' => 1///should auto increment 
         ]);
 
     }

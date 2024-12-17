@@ -17,40 +17,56 @@
                     align-items:center;
                     justify-content: center;
                     background-color: black;
-                    
+                    flex-direction:column;
+                    color:aqua;
+                    font-family:Arial, Helvetica, sans-serif;          
                }
                h1{
-                color:aqua;
+                text-decoration:dotted;
                 font:bold;
+               }
+               h2{
+                text-decoration:underline;
                }
                 .login{
                     display: flex;
                     align-items:center;
                     justify-content: center;
                     background-color: black;
-                    margin: 50px;
+                    margin: 10px;
                     color:cornflowerblue;
-                    border: 2px solid black;
+                    border: 2px solid aquamarine;
                     padding: 5px;
                     width: 400px;
-                    height: 500px;
-                    
-
+                    height: 200px;
+                }
+                button{
+                    align-self:center;
                 }
             </style>
      
     </head>
     <body>
-        <h1>login</h1>
+        <div><h1>WIFI MASHINANI</h1></div>
+        <div></div>
+
+        <h2>login</h2>
        <div class="login">
-        <form action="/login">
+            <!-- add javascript to encrypt password during transit-->
+        <form action="/login" method="POST">
+            @csrf
             <label for="loginUsename">username</label>
             <input name="loginUsername" placeholder="example1111@example.com"type="text"> </input>
             <br><br>
             <label for="loginPassword">password</label>
             <input name="loginPassword" type="password" ></input>
+            <br><br>
             <button>login</button>
         </form>
+        
+       </div>
+       <div>
+            <a href="/register">sign up</a>
        </div>
     </body>
 </html>
