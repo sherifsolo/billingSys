@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-class userController extends Controller
+class UserController extends Controller
 {
 /*
 register
@@ -75,6 +75,4 @@ logout
         Auth::logout();
         return redirect('/login');
     }
-
-
 }
