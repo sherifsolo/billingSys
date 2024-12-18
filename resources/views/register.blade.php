@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>wifi mashinani</tittle>
+    <tittle>wifi mashinani</tittle>
     <style>
         body{
             background-color: black;
@@ -18,7 +18,7 @@
         }
         .register{
             display:flex;
-            background-color: black;
+            background-color: grey;
             font:italic;
             font-family: Arial, Helvetica, sans-serif;
             width: 400px;
@@ -37,7 +37,7 @@
         }
     </style>
 </head>
-<body></body>
+<body>
     <div>
         <h1>WIFI MASHINANI</h1>
     </div>
@@ -45,21 +45,20 @@
      <div>
         <h2>Sign up</h2>
     </div>
-<div class="register">
-
-    <form action="/register" method="POST">
-        @csrf
-        <label for="regUsername">email</label>
-        <input name="regUsername" type="text" placeholder="example111@example.com">
-        <br><br>
-        </label><label for="regPassword"></label>password</label>
-        <input name="regPassword" type="password">
-        <br><br>
-        <button>signup</button>
-     </form>
+    <div class="register">
+        <form action="/register" method="POST">
+            @csrf
+            <label for="email">email</label>
+            <input name="email" type="text" placeholder="example111@example.com">
+            <br><br>
+            </label><label for="password"></label>password</label>
+            <input name="password" type="password">
+            <br><br>
+            <button>signup</button>
+        </form>
     </div>
     <div>
         <a href="/login">log in instead</a>
      </div>
-
+</body>
 <html>

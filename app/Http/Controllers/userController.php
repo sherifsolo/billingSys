@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use app\Models\User;
 use Illuminate\validation\Rule;
-//use app\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -36,36 +35,40 @@ logout
     public function registerUser(Request $request){
         //validate our users data to ensure it meets our policy
         $userData = $request->validate([
-            'RegUsername' => ['required', 'max:255', Rule::unique('users', 'email')],
-            'RegPassword' => ['reqiured', 'min:8', 'max:64'],
+            'email' => ['required', 'max:255', Rule::unique('users', 'email')],
+            'password' => ['required', 'min:8', 'max:64'],
     ]);
     //hash the given password with bcrypt/md5/sha(x)/hash
-        $userData['regPassword'] = bcrypt($userData['regPassword']);
+        $userData['password'] = bcrypt($userData['password']);
     //add user to our database
         $registeredUser = User::create($userData);
     //log in user after registering
     Auth::login($registeredUser);
 
         //return "You've been successfully signed up.You can close this tab and login to your new account";
-        return view('welcome');// return redirect('/dashboard');
+        return redirect('/dashboard');
     }
 
     //logs in user and returns a dashboard according to the role the user plays
     public function loginUser(Request $request){
         $userData = $request->validate(
             [
-                'loginUsername' => 'required',
-                'loginPassword' => 'required'
+                'email' => 'required',
+                'password' => 'required'
             ]
             );
 
             //attempt authentication if true generate a session and the cookie the user will use for the session
             if(Auth::attempt([
-                'email' => $userData['loginUsername'],
-                 'password' => $userData['loginPassword']]
+                'email' => $userData['email'],
+                 'password' => $userData['password']]
             )){
                 $request->session()->regenerate();
+                return view('dashboard');
+            }else{
+                return view('welcome');
             }
+        
 
             return view('dashboard');
     }

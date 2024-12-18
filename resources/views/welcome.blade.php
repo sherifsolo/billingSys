@@ -55,11 +55,11 @@
             <!-- add javascript to encrypt password during transit-->
         <form action="/login" method="POST">
             @csrf
-            <label for="loginUsename">username</label>
-            <input name="loginUsername" placeholder="example1111@example.com"type="text"> </input>
+            <label for="email">username</label>
+            <input name="email" placeholder="example1111@example.com"type="text"> </input>
             <br><br>
-            <label for="loginPassword">password</label>
-            <input name="loginPassword" type="password" ></input>
+            <label for="password">password</label>
+            <input name="password" type="password" ></input>
             <br><br>
             <button>login</button>
         </form>

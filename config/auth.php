@@ -1,7 +1,16 @@
 <?php
 
 return [
-
+    'defaults' => [
+        'guard' => 'web',
+        'passwords' => 'users',
+    ],
+    'passwords' => [
+        'users' => [
+            'driver' => 'bcrypt',
+            'rounds' => 10, // Optional, you can adjust the number of rounds
+        ],
+    ],
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
@@ -12,11 +21,12 @@ return [
     | as required, but they're a perfect start for most applications.
     |
     */
-
+/*
     'defaults' => [
         'guard' => env('AUTH_GUARD', 'web'),
         'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
     ],
+*/
 
     /*
     |--------------------------------------------------------------------------
@@ -89,7 +99,7 @@ return [
     | quickly generating a very large amount of password reset tokens.
     |
     */
-
+/*
     'passwords' => [
         'users' => [
             'provider' => 'users',
@@ -97,7 +107,7 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
-    ],
+    ],*/
 
     /*
     |--------------------------------------------------------------------------
